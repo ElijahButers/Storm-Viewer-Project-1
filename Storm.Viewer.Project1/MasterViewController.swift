@@ -18,6 +18,16 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let fm = NSFileManager.defaultManager()
+        let path = NSBundle.mainBundle().resourcePath!
+        let items = try! fm.contentsOfDirectoryAtPath(path)
+        
+        for item in items {
+            if item.hasPrefix("nssl") {
+                objects.append(item)
+            }
+        }
+        
     
     }
 
